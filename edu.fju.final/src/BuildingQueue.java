@@ -16,5 +16,8 @@ public class BuildingQueue {
         System.out.println(buildingType + " added to the building queue.");
     }
 
+    public Queue<String> getQueue(){
+    	return this.buildingQueue;
+    }
     // 可以添加處理建築隊列的方法，例如定期檢查和開始建造
 }
