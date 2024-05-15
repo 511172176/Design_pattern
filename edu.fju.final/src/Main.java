@@ -1,11 +1,14 @@
 //主程式
 public class Main {
     public static void main(String[] args) {
-        // 初始化建築管理界面
-        BuildingManagerFacade buildingManager = new BuildingManagerFacade();
+    	//宣告初始化玩家擁有物件設定：金錢100，木頭200，防禦初始等級1，防禦最大等級5
+    	int defaultGood = 100, defaultWood = 200, defaultLevel = 1, maxLevel = 5;    	
+    	
+        // 初始化建築管理界面，使用依賴注入提升程式得可測性
+        BuildingManagerFacade buildingManager = new BuildingManagerFacade(new ResourceCollector(defaultGood, defaultWood), new BuildingQueue(), new DefenseUpgrader(defaultLevel, maxLevel));
 
-        // 開始建造城堡
-        buildingManager.startNewConstruction("Castle");
+        // 開始建造城堡，消耗所需金錢數量50，木頭100
+        buildingManager.startNewConstruction("Castle", 50, 100);
         // 升級防禦設施
         buildingManager.upgradeDefense();
 

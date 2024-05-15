@@ -1,20 +1,20 @@
 //Facade模式實現
 // 建築管理Facade
 public class BuildingManagerFacade {
-    private ResourceCollector resourceCollector;
-    private BuildingQueue buildingQueue;
-    private DefenseUpgrader defenseUpgrader;
+    private final ResourceCollector resourceCollector;
+    private final BuildingQueue buildingQueue;
+    private final DefenseUpgrader defenseUpgrader;
 
-    public BuildingManagerFacade() {
-        resourceCollector = new ResourceCollector();
-        buildingQueue = new BuildingQueue();
-        defenseUpgrader = new DefenseUpgrader();
+    public BuildingManagerFacade(ResourceCollector r, BuildingQueue b, DefenseUpgrader d) {
+        resourceCollector = r;
+        buildingQueue = b;
+        defenseUpgrader = d;
     }
 
-    public void startNewConstruction(String buildingType) {
-        if (resourceCollector.hasEnoughResources(buildingType)) {
+    public void startNewConstruction(String buildingType, int reqGold, int reqWood) {
+        if (resourceCollector.hasEnoughResources(buildingType, reqGold, reqWood)) {
             buildingQueue.addBuilding(buildingType);
-            resourceCollector.useResources(buildingType);
+            resourceCollector.useResources(buildingType, reqGold, reqWood);
             System.out.println(buildingType + " construction started.");
         } else {
             System.out.println("Not enough resources to start construction.");
