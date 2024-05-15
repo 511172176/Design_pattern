@@ -13,16 +13,15 @@ public class ResourceCollector {
         resources.put("Wood", defaultWood);
     }
 
-    public boolean hasEnoughResources(String buildingType, int reqGold, int reqWood) {
+    public boolean hasEnoughResources(int reqGold, int reqWood) {
         // 假設每種建築都需要一定量的金錢和木材        
         return resources.get("Gold") >= reqGold && resources.get("Wood") >= reqWood;
     }
 
-    public void useResources(String buildingType, int costGold, int costWood) {
+    public void useResources(int costGold, int costWood) {
         // 假設建造任何建築都會消耗一定的資源
         resources.put("Gold", resources.get("Gold") - costGold);
-        resources.put("Wood", resources.get("Wood") - costWood);
-        System.out.println("Resources used for " + buildingType);
+        resources.put("Wood", resources.get("Wood") - costWood);        
     }
     
     public int getGold() {

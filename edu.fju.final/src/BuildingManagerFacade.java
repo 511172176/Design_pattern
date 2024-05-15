@@ -6,15 +6,15 @@ public class BuildingManagerFacade {
     private final DefenseUpgrader defenseUpgrader;
 
     public BuildingManagerFacade(ResourceCollector r, BuildingQueue b, DefenseUpgrader d) {
-        resourceCollector = r;
-        buildingQueue = b;
-        defenseUpgrader = d;
+        this.resourceCollector = r;
+        this.buildingQueue = b;
+        this.defenseUpgrader = d;
     }
 
     public void startNewConstruction(String buildingType, int reqGold, int reqWood) {
-        if (resourceCollector.hasEnoughResources(buildingType, reqGold, reqWood)) {
-            buildingQueue.addBuilding(buildingType);
-            resourceCollector.useResources(buildingType, reqGold, reqWood);
+        if (resourceCollector.hasEnoughResources(reqGold, reqWood)) {
+            this.buildingQueue.addBuilding(buildingType);
+            this.resourceCollector.useResources(reqGold, reqWood);
             System.out.println(buildingType + " construction started.");
         } else {
             System.out.println("Not enough resources to start construction.");
@@ -22,8 +22,8 @@ public class BuildingManagerFacade {
     }
 
     public void upgradeDefense() {
-        if (defenseUpgrader.canUpgrade()) {
-            defenseUpgrader.upgrade();
+        if (this.defenseUpgrader.canUpgrade()) {
+            this.defenseUpgrader.upgrade();
             System.out.println("Defenses upgraded.");
         } else {
             System.out.println("Cannot upgrade defenses at this time.");
