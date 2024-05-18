@@ -12,6 +12,7 @@ class MockDefendArmy extends Army{
 
 public class DefendCommandTester {
 	
+	@Test
 	void excute() {
 		Army a = new MockDefendArmy(); //DOC
 		DefendCommand d = new DefendCommand(a); //SUT
