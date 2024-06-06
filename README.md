@@ -22,8 +22,7 @@
 這個情境結合了三種設計模式，使得遊戲不僅提供了豐富的互動性和策略深度，同時也保證了良好的用戶體驗和系統的可擴展性。這種設計讓玩家可以輕鬆入門，同時為進階玩家提供深度的策略選擇。
 
 ## 類別圖
-![dpt (2)](https://github.com/511172176/Design_pattern/assets/151836005/b92ce5a6-58a8-4a18-8de3-da89b7cffb2e)
-
+![upup](https://github.com/511172176/kingdom_defense/assets/151836005/ac9d24b2-fbea-4f81-877a-2fd8806256b2)
 
 ## 循序圖
 ![dptt](https://github.com/511172176/Design_pattern/assets/151836005/90f303d6-61ec-4412-be1a-5aa13bd9b517)
